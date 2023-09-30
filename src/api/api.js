@@ -22,3 +22,8 @@ export const getMoviesByName = async name => {
   } = await BASE_URL.get(`search/movie?api_key=${KEY}&query=${name}`);
   return results;
 };
+
+export const getMovieById = async id => {
+  const { data } = await BASE_URL.get(`/movie/${id}?api_key=${KEY}`);
+  return data;
+};
