@@ -24,6 +24,17 @@ export const getMoviesByName = async name => {
 };
 
 export const getMovieById = async id => {
-  const { data } = await BASE_URL.get(`/movie/${id}?api_key=${KEY}`);
+  const { data } = await BASE_URL.get(`movie/${id}?api_key=${KEY}`);
   return data;
 };
+
+export const getMovieCast = async id => {
+  const { data } = await BASE_URL.get(`movie/${id}/credits?api_key=${KEY}`);
+  return data;
+};
+
+export const getMovieReviews = async id => {
+  const { data } = await BASE_URL.get(`movie/${id}/reviews?api_key=${KEY}`);
+  return data;
+};
+

@@ -19,7 +19,6 @@ const MovieSearch = ({ submitHandle }) => {
       return;
     }
     submitHandle(submittedValue);
-    console.log(e.currentTarget.search.value);
     setValue('');
   }
 

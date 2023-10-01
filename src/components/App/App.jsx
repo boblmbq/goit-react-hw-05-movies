@@ -1,3 +1,5 @@
+import MovieCast from 'components/MovieCast';
+import MovieReview from 'components/MovieReview';
 import SharedLayout from 'components/SharedLayout';
 import Home from 'pages/Home';
 import MovieDescription from 'pages/MovieDescription';
@@ -10,7 +12,10 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
-        <Route path="movies/:id" element={<MovieDescription />} />
+        <Route path="movies/:id" element={<MovieDescription />}>
+          <Route path="carts" element={<MovieCast />} />
+          <Route path="review" element={<MovieReview />} />
+        </Route>
       </Route>
     </Routes>
   );
