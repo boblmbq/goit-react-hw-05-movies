@@ -1,16 +1,60 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import defaultImg from 'components/default_img';
+import {
+  Img,
+  MovieCard,
+  MovieDesriptionWrapper,
+  MovieLink,
+  MovieOverview,
+  MovieOverviewTitle,
+  MovieOverviewWrapper,
+  MovieRating,
+  MovieTitle,
+  TitleRatingWrapper,
+  Ul,
+} from './MovieList.styled';
+import { maxSymbols } from 'utils/max_symbols';
 
 const MovieList = ({ movies }) => {
-  const location = useLocation()
+  const location = useLocation();
+
   if (movies) {
     return (
-      <ul>
-        {movies.map(({ original_title: title, id }) => (
-          <li key={id}>
-            <Link to={`/movies/${id}`} state={{from : location}}>{title}</Link>
-          </li>
-        ))}
-      </ul>
+      <Ul>
+        {movies.map(
+          ({
+            original_title: title,
+            id,
+            poster_path: image,
+            vote_average,
+            overview,
+          }) => (
+            <MovieCard key={id}>
+              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+                <Img
+                  src={
+                    image
+                      ? `https://image.tmdb.org/t/p/w500/${image}`
+                      : defaultImg
+                  }
+                  alt={title}
+                />
+                <MovieDesriptionWrapper>
+                  <TitleRatingWrapper>
+                    <MovieTitle>{title}</MovieTitle>
+                    <MovieRating>{vote_average}</MovieRating>
+                  </TitleRatingWrapper>
+
+                  <MovieOverviewWrapper>
+                    <MovieOverviewTitle>Description:</MovieOverviewTitle>
+                    <MovieOverview>{maxSymbols(overview)}</MovieOverview>
+                  </MovieOverviewWrapper>
+                </MovieDesriptionWrapper>
+              </MovieLink>
+            </MovieCard>
+          )
+        )}
+      </Ul>
     );
   }
 };

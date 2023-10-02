@@ -1,7 +1,7 @@
 import { getMovieById } from 'api/api';
 import MovieImage from 'components/MovieImage';
 import MovieTextDescr from 'components/MovieTextDescr';
-import defaultImg from 'utils/default_img';
+import defaultImg from 'components/default_img';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 

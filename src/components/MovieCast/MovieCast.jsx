@@ -1,5 +1,5 @@
 import { getMovieCast } from 'api/api';
-import defaultImg from 'utils/default_img';
+import defaultImg from 'components/default_img';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

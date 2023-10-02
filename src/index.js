@@ -7,9 +7,9 @@ import { ThemeProvider } from '@emotion/react';
 
 const theme = Object.freeze({
   colors: {
-    mainBackGradient: 'linear-gradient(#000, #fff)',
     headerBack: '#565656',
     pageLinkBack: '#707070',
+    inputSearch: '#707070',
     movieCartBack: '#707070',
     fontColor: '#fff',
   },
