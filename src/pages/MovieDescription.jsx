@@ -2,8 +2,8 @@ import { getMovieById } from 'api/api';
 import MovieImage from 'components/MovieImage';
 import MovieTextDescr from 'components/MovieTextDescr';
 import defaultImg from 'utils/default_img';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const MovieDescription = () => {
   const [movieImage, setMovieImage] = useState('');
@@ -15,6 +15,8 @@ const MovieDescription = () => {
   });
 
   const { id } = useParams();
+  const { state } = useLocation();
+  const returnBackLink = useRef(state?.from ?? '/movies');
 
   useEffect(() => {
     async function getMovie(id) {
@@ -35,6 +37,7 @@ const MovieDescription = () => {
 
   return (
     <>
+      <Link to={returnBackLink.current}>return back</Link>
       <MovieTextDescr
         title={original_title}
         rating={vote_average}
@@ -42,12 +45,19 @@ const MovieDescription = () => {
         genres={genres}
       />
       <MovieImage src={movieImage} descr={movieInfo.original_title} />
-      <Link to="carts" state={id}>
-        carts
-      </Link>
-      <Link to="review" state={id}>
-        review
-      </Link>
+
+      <ul>
+        <li>
+          <Link to="carts" state={id}>
+            Carts
+          </Link>
+        </li>
+        <li>
+          <Link to="review" state={id}>
+            Review
+          </Link>
+        </li>
+      </ul>
 
       <Outlet />
     </>
@@ -55,24 +65,3 @@ const MovieDescription = () => {
 };
 
 export default MovieDescription;
-
-// poster_path: "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
-
-// genres: (3) [{…}, {…}, {…}]
-
-// original_title: "John Wick: Chapter 4"
-
-// overview: "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes."
-
-// vote_average: 7.814
-
-// const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700'
-
-// <img src={
-//  movieData.poster_path ?
-//  `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
-//  : defaultImg
-// }
-// width={250}
-// alt="poster"
-// />

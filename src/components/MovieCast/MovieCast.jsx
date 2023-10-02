@@ -1,16 +1,16 @@
 import { getMovieCast } from 'api/api';
 import defaultImg from 'utils/default_img';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const MovieCast = () => {
   const [castList, setCastList] = useState([]);
-  const { state } = useLocation();
+  const { id } = useParams();
 
   useEffect(() => {
     async function movieCast() {
       try {
-        const data = await getMovieCast(state);
+        const data = await getMovieCast(id);
         const { cast } = data;
         setCastList(cast);
       } catch (error) {
@@ -18,7 +18,7 @@ const MovieCast = () => {
       }
     }
     movieCast();
-  }, [state]);
+  }, [id]);
 
   return (
     <ul>
@@ -41,7 +41,3 @@ const MovieCast = () => {
 };
 
 export default MovieCast;
-
-// character: 'Ethan Hunt';
-// name: 'Tom Cruise';
-// profile_path: '/8qBylBsQf4llkGrWR3qAsOtOU8O.jpg';
