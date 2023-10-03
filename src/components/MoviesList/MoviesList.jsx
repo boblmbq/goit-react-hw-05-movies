@@ -40,11 +40,8 @@ const MovieList = ({ movies }) => {
                   alt={title}
                 />
                 <MovieDesriptionWrapper>
-                  
                     <MovieTitle>{title}</MovieTitle>
                     <MovieRating>{vote_average}</MovieRating>
-                  
-
                   <MovieOverviewWrapper>
                     <MovieOverviewTitle>Description:</MovieOverviewTitle>
                     <MovieOverview>{maxSymbols(overview)}</MovieOverview>
