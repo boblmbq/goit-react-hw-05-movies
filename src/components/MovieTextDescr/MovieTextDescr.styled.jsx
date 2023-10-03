@@ -9,9 +9,9 @@ export const TextDescrWrapper = styled.div`
 
 export const DescrTitleWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: ${({gap})=> gap}px;
+  gap: ${({ gap }) => gap}px;
 `;
 
 export const Title = styled.h1`
@@ -25,9 +25,17 @@ export const TextWrapper = styled.p`
   font-size: ${({ props, theme }) => theme.countSize(props)};
 `;
 
+export const TextGendresWrapper = styled.p`
+  margin-left: ${({ theme }) => theme.countSize(1)};
+  font-size: ${({ fSize, theme }) => theme.countSize(fSize)};
+`;
+
 export const UlStyled = styled.ul`
   display: flex;
   margin-left: 8px;
   font-size: ${({ props, theme }) => theme.countSize(props)};
   gap: ${({ theme }) => theme.countSize(1)};
+`;
+export const HTwoTtitle = styled.h2`
+  font-weight: 400;
 `;

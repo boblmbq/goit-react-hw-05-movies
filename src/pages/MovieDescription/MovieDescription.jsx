@@ -1,14 +1,16 @@
 import { getMovieById } from 'api/api';
 import MovieImage from 'components/MovieImage';
 import MovieTextDescr from 'components/MovieTextDescr';
-import defaultImg from 'components/default_img';
+import defaultImg from 'constants/default_img';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import arrow from '../../svg/arrow.svg';
 import {
+  CustomLi,
   MovieDescriptionWrapper,
   Paddings,
   ReturnLink,
+  UlStyled,
 } from './MovieDescription.styled';
 
 const MovieDescription = () => {
@@ -46,29 +48,30 @@ const MovieDescription = () => {
       <ReturnLink to={returnBackLink.current}>
         <img src={arrow} alt="return back" />
       </ReturnLink>
-      <div>
-        <MovieDescriptionWrapper>
+      <MovieDescriptionWrapper>
+        <div>
           <MovieImage src={movieImage} descr={movieInfo.original_title} />
-          <MovieTextDescr
-            title={original_title}
-            rating={vote_average}
-            description={overview}
-            genres={genres}
-          />
-        </MovieDescriptionWrapper>
-        <ul>
-          <li>
-            <Link to="carts" state={id}>
-              Carts
-            </Link>
-          </li>
-          <li>
-            <Link to="review" state={id}>
-              Review
-            </Link>
-          </li>
-        </ul>
-      </div>
+          <UlStyled>
+            <CustomLi fSize={6}>
+              <Link to="carts" state={id}>
+                Carts
+              </Link>
+            </CustomLi>
+            <CustomLi fSize={6}>
+              <Link to="review" state={id}>
+                Review
+              </Link>
+            </CustomLi>
+          </UlStyled>
+        </div>
+        <MovieTextDescr
+          title={original_title}
+          rating={vote_average}
+          description={overview}
+          genres={genres}
+        />
+      </MovieDescriptionWrapper>
+
       <Outlet />
     </Paddings>
   );

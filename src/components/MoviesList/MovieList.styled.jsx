@@ -56,6 +56,5 @@ export const MovieOverviewTitle = styled.p`
 `;
 
 export const MovieOverview = styled.p`
-overflow: hidden;
-max-height: 130px;
+height: 130px;
 `;

@@ -1,7 +1,8 @@
 import { getMovieCast } from 'api/api';
-import defaultImg from 'components/default_img';
+import defaultImg from 'constants/default_img';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UlStyled } from './MovieCast.styled';
 
 const MovieCast = () => {
   const [castList, setCastList] = useState([]);
@@ -21,7 +22,7 @@ const MovieCast = () => {
   }, [id]);
 
   return (
-    <ul>
+    <UlStyled>
       {castList.map(({ character, name, profile_path }) => (
         <li key={name}>
           <img
@@ -31,12 +32,12 @@ const MovieCast = () => {
                 : defaultImg
             }
             alt={name}
-            width={200}
+            width={250}
           />
           <h2>{character}</h2>
         </li>
       ))}
-    </ul>
+    </UlStyled>
   );
 };
 

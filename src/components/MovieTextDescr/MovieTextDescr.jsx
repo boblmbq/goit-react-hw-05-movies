@@ -1,6 +1,8 @@
 import {
   DescrTitleWrapper,
+  HTwoTtitle,
   TextDescrWrapper,
+  TextGendresWrapper,
   TextWrapper,
   Title,
   UlStyled,
@@ -11,24 +13,26 @@ const MovieTextDescr = ({ title, rating, description, genres }) => {
     <TextDescrWrapper>
       <Title>{title}</Title>
 
-      <DescrTitleWrapper >
-        <h2>User Score:</h2>
+      <DescrTitleWrapper>
+        <HTwoTtitle>User Score:</HTwoTtitle>
         <TextWrapper props={6}>{rating.toFixed(1)}</TextWrapper>
       </DescrTitleWrapper>
 
       {genres.length > 1 && (
         <DescrTitleWrapper>
-          <h2>Genres:</h2>
+          <HTwoTtitle>Genres:</HTwoTtitle>
           <UlStyled props={6}>
             {genres.map(({ name }) => (
-              <li key={name}>{name},</li>
+              <li key={name}>
+                <TextGendresWrapper fSize={5}>{name},</TextGendresWrapper>
+              </li>
             ))}
           </UlStyled>
         </DescrTitleWrapper>
       )}
 
       <DescrTitleWrapper gap={15}>
-        <h2>Overview:</h2>
+        <HTwoTtitle>Overview:</HTwoTtitle>
         <p>{description}</p>
       </DescrTitleWrapper>
     </TextDescrWrapper>

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import defaultImg from 'components/default_img';
+import defaultImg from 'constants/default_img';
 import {
   Img,
   MovieCard,
