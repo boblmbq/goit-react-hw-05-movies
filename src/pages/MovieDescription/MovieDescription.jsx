@@ -4,6 +4,12 @@ import MovieTextDescr from 'components/MovieTextDescr';
 import defaultImg from 'components/default_img';
 import { useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import arrow from '../../svg/arrow.svg';
+import {
+  MovieDescriptionWrapper,
+  Paddings,
+  ReturnLink,
+} from './MovieDescription.styled';
 
 const MovieDescription = () => {
   const [movieImage, setMovieImage] = useState('');
@@ -36,31 +42,35 @@ const MovieDescription = () => {
   const { genres, original_title, overview, vote_average } = movieInfo;
 
   return (
-    <>
-      <Link to={returnBackLink.current}>return back</Link>
-      <MovieTextDescr
-        title={original_title}
-        rating={vote_average}
-        description={overview}
-        genres={genres}
-      />
-      <MovieImage src={movieImage} descr={movieInfo.original_title} />
-
-      <ul>
-        <li>
-          <Link to="carts" state={id}>
-            Carts
-          </Link>
-        </li>
-        <li>
-          <Link to="review" state={id}>
-            Review
-          </Link>
-        </li>
-      </ul>
-
+    <Paddings>
+      <ReturnLink to={returnBackLink.current}>
+        <img src={arrow} alt="return back" />
+      </ReturnLink>
+      <div>
+        <MovieDescriptionWrapper>
+          <MovieImage src={movieImage} descr={movieInfo.original_title} />
+          <MovieTextDescr
+            title={original_title}
+            rating={vote_average}
+            description={overview}
+            genres={genres}
+          />
+        </MovieDescriptionWrapper>
+        <ul>
+          <li>
+            <Link to="carts" state={id}>
+              Carts
+            </Link>
+          </li>
+          <li>
+            <Link to="review" state={id}>
+              Review
+            </Link>
+          </li>
+        </ul>
+      </div>
       <Outlet />
-    </>
+    </Paddings>
   );
 };
 

@@ -1,21 +1,37 @@
+import {
+  DescrTitleWrapper,
+  TextDescrWrapper,
+  TextWrapper,
+  Title,
+  UlStyled,
+} from './MovieTextDescr.styled';
+
 const MovieTextDescr = ({ title, rating, description, genres }) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>User Score: {Math.ceil(rating * 10)}%</p>
-      <h2>Overview</h2>
-      <p>{description}</p>
+    <TextDescrWrapper>
+      <Title>{title}</Title>
+
+      <DescrTitleWrapper >
+        <h2>User Score:</h2>
+        <TextWrapper props={6}>{rating.toFixed(1)}</TextWrapper>
+      </DescrTitleWrapper>
+
       {genres.length > 1 && (
-        <>
-          <h3>Genres</h3>
-          <ul>
+        <DescrTitleWrapper>
+          <h2>Genres:</h2>
+          <UlStyled props={6}>
             {genres.map(({ name }) => (
-              <li key={name}>{name}</li>
+              <li key={name}>{name},</li>
             ))}
-          </ul>
-        </>
+          </UlStyled>
+        </DescrTitleWrapper>
       )}
-    </div>
+
+      <DescrTitleWrapper gap={15}>
+        <h2>Overview:</h2>
+        <p>{description}</p>
+      </DescrTitleWrapper>
+    </TextDescrWrapper>
   );
 };
 

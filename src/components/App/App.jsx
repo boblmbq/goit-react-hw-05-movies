@@ -2,7 +2,7 @@ import MovieCast from 'components/MovieCast';
 import MovieReview from 'components/MovieReview';
 import SharedLayout from 'components/SharedLayout';
 import Home from 'pages/Home';
-import MovieDescription from 'pages/MovieDescription';
+import MovieDescription from 'pages/MovieDescription/MovieDescription';
 import Movies from 'pages/Movies';
 import { Route, Routes } from 'react-router-dom';
 
