@@ -26,12 +26,15 @@ export const Img = styled.img`
 `;
 
 export const MovieDesriptionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 0 5px;
 `;
 
 export const TitleRatingWrapper = styled.div`
-margin-bottom: 60px;
-` 
+  margin-bottom: 60px;
+`;
 
 export const MovieTitle = styled.p`
   margin-bottom: ${({ theme }) => theme.countSize(5)};
@@ -56,5 +59,5 @@ export const MovieOverviewTitle = styled.p`
 `;
 
 export const MovieOverview = styled.p`
-height: 130px;
+  height: 130px;
 `;

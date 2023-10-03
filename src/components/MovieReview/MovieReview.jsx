@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { postDateFormating } from 'utils/date_format';
 import { CustomLi } from './MovieReviev.styled';
 
-const MovieReview = () => {
+export const MovieReview = () => {
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
 
@@ -30,4 +30,3 @@ const MovieReview = () => {
   );
 };
 
-export default MovieReview;

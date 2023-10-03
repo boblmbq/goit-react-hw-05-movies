@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UlStyled } from './MovieCast.styled';
 
-const MovieCast = () => {
+export const MovieCast = () => {
   const [castList, setCastList] = useState([]);
   const { id } = useParams();
 
@@ -41,4 +41,3 @@ const MovieCast = () => {
   );
 };
 
-export default MovieCast;

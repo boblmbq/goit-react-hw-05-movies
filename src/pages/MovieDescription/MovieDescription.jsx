@@ -2,7 +2,7 @@ import { getMovieById } from 'api/api';
 import MovieImage from 'components/MovieImage';
 import MovieTextDescr from 'components/MovieTextDescr';
 import defaultImg from 'constants/default_img';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import arrow from '../../svg/arrow.svg';
 import {
@@ -72,7 +72,9 @@ const MovieDescription = () => {
         />
       </MovieDescriptionWrapper>
 
-      <Outlet />
+      <Suspense fallback="loading...">
+        <Outlet />
+      </Suspense>
     </Paddings>
   );
 };
