@@ -10,7 +10,6 @@ import {
   MovieOverviewWrapper,
   MovieRating,
   MovieTitle,
-  
   Ul,
 } from './MovieList.styled';
 import { maxSymbols } from 'utils/max_symbols';
