@@ -32,10 +32,6 @@ export const MovieDesriptionWrapper = styled.div`
   padding: 0 5px;
 `;
 
-export const TitleRatingWrapper = styled.div`
-  margin-bottom: 60px;
-`;
-
 export const MovieTitle = styled.p`
   margin-bottom: ${({ theme }) => theme.countSize(5)};
   font-size: ${({ theme }) => theme.countSize(8)};
