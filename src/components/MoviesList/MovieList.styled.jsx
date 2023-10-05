@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const Ul = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around
+  ;
   padding: 0 20px;
   gap: ${({ theme }) => theme.countSize(2)};
 `;
